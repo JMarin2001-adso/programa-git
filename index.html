@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Usuarios</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+  <h1>Usuarios</h1>
+  <button onclick="openModal()">Crear Usuario</button>
+  <table id="userTable">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Direccion</th>
+        <th>Correo</th>
+        <th>Contraseña</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+ <!--Modal wrapper--> 
+<div id="modal" class="modal">
+    <div class="modal-content">
+      <h2 class="modal-title" id="formTitle">Crear Usuario</h2>
+      <form id="userForm" class="form">
+        <div class="form-group">
+          <label for="Nombre">Nombre</label>
+          <input type="text" id="Nombre" name="Nombre" autocomplete="off" required/>
+          <!--<input type="text" id="nombre" required />-->
+        </div>
+  
+        <div class="form-group">
+          <label for="Direccion">Direccion</label>
+          <input type="text" id="Direccion" name="Direccion" autocomplete="off" required/>
+          <!--<input type="text" id="direccion" required />-->
+        </div>
+  
+        <div class="form-group">
+          <label for="Email">Correo</label>
+          <input type="Email" id="Email" name="Email" autocomplete="off" />
+          <!--<input type="email" id="email" />-->
+        </div>
+  
+        <div class="form-group">
+          <label for="Password">Contraseña</label>
+          <input type="Password" id="Password" name="Password" autocomplete="off" required/>
+          <!--<input type="password" id="Password" required />-->
+        </div>
+  
+        <div class="form-actions">
+          <button type="button" onclick="closeModal()" class="btn-cancel">Cancelar</button>
+          <button type="submit" class="btn-submit" id="submitButton">Crear</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+<script src="assets/js/script.js"></script> <!--arbol dump-->
+</body>
+</html>
