@@ -1,4 +1,4 @@
-const API_BASE = "http://127.0.0.1:8000"
+  const API_BASE = "http://127.0.0.1:8000"
 
 let userUpdate=null; //variable que determinar si el formulario es para crear o para editar el usuario
 
@@ -57,7 +57,7 @@ function closeModal(){
 }
 
 async function openEditModal(id){
-  const res= await fetch(`${API_BASE}/user/get-user/${id}`);
+  const res= await fetch(`${API_BASE}/user/users/${id}`);
   const response= await res.json();
 
   if(!res.ok || !response.data){
@@ -93,7 +93,7 @@ async function createUser() {
 
   const endpoint= userUpdate
   ?`${API_BASE}/user/update-user/${userUpdate}` 
-  :`${API_BASE}/user/create-user`;//usa para crear
+  :`${API_BASE}/user/create-user/`;//usa para crear
   //los dos puntos empezando la linea de arriba significan que si no va actuazar entonces va a crear
   
   
@@ -161,6 +161,4 @@ loadUsers()
 document.getElementById("userForm").addEventListener("submit", function(e){
   e.preventDefault();
   createUser();
-})
-
-
+  })

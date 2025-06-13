@@ -7,22 +7,120 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
   
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/stylo.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <h1>Departamentos</h1>
-  <button>Definir area</button>
+  <button onclick="openModaldepartamento()">Definir area</button>
   <table id="Departamentostable">
     <thead>
       <tr>
         <th>cargo</th><!--urgencia o consulta externa-->
-        <th>designacion</th><!--medico,farmacauta etc-->
-        <th>CodigoUsuario</th><!--foring key-->
+        <th>Usuario</th>
+        <th>Area Asignada</th><!--medico,farmacauta etc-->
+        <th>ID Asignado</th><!--foring key-->
       </tr>
     </thead>
     <tbody></tbody>
   </table>
+   <!--Modal wrapper--> 
+<div id="modaldepartamento" class="modal">
+  <div class="modal-content">
+    <h2 class="modal-title" id="formTitle">definir area</h2>
+    <form id="departamentoForm" class="form">
+      <div class="form-group">
+        <label for="nombre">Usuario</label>
+         <select id="usuario" required>
+          <option value="">seleccione usuario</option>
+       <input type="text" id="nombre" name="nombre" autocomplete="off" required/>
+         <!--input type="text" id="nombre" required />-->
+      </div>
+      
+     
+      <div class="form-group">
+        <label for="cargo">Cargo</label>
+        <select id="cargo" required>
+          <option value="">seleccione cargo</option>
+        <!--<input type="text" id="nombre" required />-->
+      </div>
+      
+      <div class="form-group">
+        <label for="cargo">cargo</label>
+        <select id="cargo" required>
+          <option value=""></option>
+        <!--<input type="text" id="nombre" required />-->
+      </div>
+    
+     <!--<div class="form-group">
+        <label for="areaAsignada">Area</label>
+        <select id="areaAsignada" required>
+          <option value="">seleccione area</option>
+        <input type="text" id="nombre" required />
+      </div>--> <div class="form-group">
+        <label for="areaAsignada">Area</label>
+        <select id="areaAsignada" required>
+          <option value="">seleccione area</option>
+        <!--<input type="text" id="nombre" required />-->
+      </div>
+
+
+
+      <div class="form-actions">
+        <button type="button" onclick="closeModal()" class="btn-cancel">Cancelar</button>
+        <button type="submit" class="btn-submit" id="submitButton">Crear</button>
+      </div>
+    </form>
+  </div>
+</div>
     <script src="assets/js/departamento.js"></script>
 </body>
 </html>
+
+
+
+
+const select=document.getElementById("usuario")
+   select.innerHTML="";
+
+    users.data.forEach((u)=>{
+      const option =document.createElement("option");
+        option.textContent=`${u.nombre}`;
+        option.value = u.id;
+        select.opendChild(option);
+   })
+}
+async function createDeparmento() {
+    const cargo= document.getElementById("cargo").value;
+    const areaAsignada= document.getElementById("areaAsignada").value;
+    const codigoUsuario= document.getElementById("codigoUsuario").value;
+
+    const res= await fetch(`${API_BASE}/departamento/create-departamento/`,{
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({cargo,areaAsignada,codigoUsuario})
+    });
+
+    if (res.ok){
+        Swal.fire(
+            "Ëxito",
+            "creado con existo",
+            "success")
+        
+        closeModal();
+        fetchDepartamentos();
+        }
+    else{
+        Swal.fire(
+            "Ëxito",
+            "no se pudo crear",
+            "error")
+
+    }
+}
+
+document.getElementById("departamentoForm").addEventListener("submit", function(e){
+e.preventDefault();
+createDeparmento();    
+})
+
