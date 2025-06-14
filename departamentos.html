@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-    <h1>Departamentos</h1>
+    <h1>Asignacion area</h1>
   <button onclick="openModaldepartamento()">Definir area</button>
   <table id="Departamentostable">
     <thead>
@@ -76,51 +76,4 @@
     <script src="assets/js/departamento.js"></script>
 </body>
 </html>
-
-
-
-
-const select=document.getElementById("usuario")
-   select.innerHTML="";
-
-    users.data.forEach((u)=>{
-      const option =document.createElement("option");
-        option.textContent=`${u.nombre}`;
-        option.value = u.id;
-        select.opendChild(option);
-   })
-}
-async function createDeparmento() {
-    const cargo= document.getElementById("cargo").value;
-    const areaAsignada= document.getElementById("areaAsignada").value;
-    const codigoUsuario= document.getElementById("codigoUsuario").value;
-
-    const res= await fetch(`${API_BASE}/departamento/create-departamento/`,{
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({cargo,areaAsignada,codigoUsuario})
-    });
-
-    if (res.ok){
-        Swal.fire(
-            "Ëxito",
-            "creado con existo",
-            "success")
-        
-        closeModal();
-        fetchDepartamentos();
-        }
-    else{
-        Swal.fire(
-            "Ëxito",
-            "no se pudo crear",
-            "error")
-
-    }
-}
-
-document.getElementById("departamentoForm").addEventListener("submit", function(e){
-e.preventDefault();
-createDeparmento();    
-})
 

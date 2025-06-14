@@ -1,45 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panel de Usuario</title>
-  <link rel="stylesheet" href="assest/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard IPS</title>
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+  <script defer src="assets/js/dashboard.js"></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f0f4f8;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .dashboard {
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    h1 {
-      margin-bottom: 1rem;
-    }
-    a {
-      display: inline-block;
-      margin-top: 1.5rem;
-      color: #007bff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
+      background: url('assets/img/fondo-concepto-medicina-ciencia_41814-21.avif') no-repeat center center fixed;
+      background-size: cover;
     }
   </style>
 </head>
 <body>
-  <div class="dashboard">
-    <h1>¡Bienvenido al Panel de Usuario!</h1>
-    <p>Has iniciado sesión correctamente.</p>
-    <a href="formulario.html">Cerrar sesión</a>
-  </div>
+  <header class="header">
+    <div class="burger" id="burger">&#9776;</div>
+    <div class="user-info">
+      <span id="nombreUsuario">Usuario</span> |
+      <span id="cargoUsuario">Cargo</span>
+      <button id="cerrarSesion">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <aside class="sidebar" id="sidebar">
+    <nav>
+      <ul id="menuOpciones">
+        <!-- Opciones dinámicas aquí -->
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <h1>Bienvenido al Dashboard</h1>
+    <p>Aquí va el contenido principal de la aplicación.</p>
+  </main>
 </body>
 </html>
