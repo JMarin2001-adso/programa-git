@@ -1,4 +1,4 @@
-const API_BASE = "http://18.191.80.162:8000"
+const API_BASE = "http://18.191.72.49:8000"
 
 //creacion GET
 

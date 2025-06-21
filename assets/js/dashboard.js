@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   try {
-    const response = await fetch(`http://18.191.80.162:8000/user/dashboard-user/${userId}`);
+    const response = await fetch(`http://18.191.72.49:8000/user/dashboard-user/${userId}`);
     const data = await response.json();
 
     if (response.ok && data.data) {
