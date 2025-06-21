@@ -85,3 +85,65 @@ body {
   margin-top: 60px;
   padding: 20px;
 } 
+
+.content input, .content button {
+  display: block;
+  margin: 10px 0;
+  padding: 8px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.content button {
+  background: #222;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.content button:hover {
+  background: #444;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 60px); /* altura disponible menos el header */
+  flex-direction: column;
+  text-align: center;
+}
+
+.form-box {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 100%;
+}
+
+.form-box h2 {
+  margin-top: 0;
+}
+
+.form-box input,
+.form-box button {
+  display: block;
+  margin: 10px auto;
+  padding: 8px;
+  width: 90%;
+  max-width: 300px;
+}
+
+.form-box button {
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-box button:hover {
+  background: #444;
+}
